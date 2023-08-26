@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
+using Utilities;
 
 namespace Charts.Sankey {
 	public class SankeyChart : MonoBehaviour {
@@ -18,6 +19,8 @@ namespace Charts.Sankey {
 		public List<SankeyLink> links;
 
 		void Start() {
+			PaletteManager.Palette = PaletteManager.DefaultPalette;
+
 			// Demo SankeyChart def
 			var Sun = AddNode("Sun", 0, 4);
 			var Grass = AddNode("Grass", 1);
@@ -56,7 +59,7 @@ namespace Charts.Sankey {
 			var column = GetOrCreateColumn(columnIdx);
 			var newNode = Instantiate(sankeyNodePrefab, transform);
 			column.AddNode(newNode);
-			newNode.SetModel(name, column, value);;
+			newNode.InitalizeModel(name, column, value);;
 			return newNode;
 		}
 
@@ -70,7 +73,7 @@ namespace Charts.Sankey {
 		}
 
 		public void AddLink(SankeyNode sourceNode, SankeyNode destinationNode, float ratioOfInput) {
-			var newLink = Instantiate(sankeyLinkPrefab, transform).SetModel(sourceNode, destinationNode, ratioOfInput);
+			var newLink = Instantiate(sankeyLinkPrefab, transform).InitalizeModel(sourceNode, destinationNode, ratioOfInput);
 			sourceNode.OutboundLinks.Add(newLink);
 			destinationNode.InboundLinks.Add(newLink);
 			destinationNode.Value += sourceNode.Value * ratioOfInput;

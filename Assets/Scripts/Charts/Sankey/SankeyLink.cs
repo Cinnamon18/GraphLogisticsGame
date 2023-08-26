@@ -28,10 +28,12 @@ namespace Charts.Sankey {
 		public Vector2 EndTop => (Vector3) (EndPoint) + (Vector3.up * (Thickness / 2f));
 		public Vector2 EndBottom => (Vector3) (EndPoint) - (Vector3.up * (Thickness / 2f));
 
-		public SankeyLink SetModel(SankeyNode source = null, SankeyNode target = null, float ratioOfInput = 0) {
+		public SankeyLink InitalizeModel(SankeyNode source = null, SankeyNode target = null, float ratioOfInput = 0) {
 			Source = source;
 			Target = target;
 			RatioOfInput = ratioOfInput;
+
+			Color = PaletteManager.GetNextColor();
 			return this;
 		}
 

@@ -26,19 +26,21 @@ namespace Charts.Sankey {
 			}
 		}
 		private float value;
-
 		private SankeyChartColumn parentColumn;
 		public List<SankeyLink> OutboundLinks = new List<SankeyLink>();
 		public List<SankeyLink> InboundLinks = new List<SankeyLink>();
 
+
 		public Vector2 Top => transform.position + (Vector3.up * Value * 0.5f);
 		public Vector2 Bottom => transform.position - (Vector3.up * Value * 0.5f);
 
-		public SankeyNode SetModel(string name, SankeyChartColumn parentColumn, float value = 0) {
+		public SankeyNode InitalizeModel(string name, SankeyChartColumn parentColumn, float value = 0) {
 			this.parentColumn = parentColumn;
 			text.text = name;
 			this.gameObject.name = name;
 			Value = value;
+
+			rectangle.Color = PaletteManager.GetNextColor();;
 			return this;
 		}
 

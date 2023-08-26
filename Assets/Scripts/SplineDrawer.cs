@@ -3,9 +3,10 @@ using Shapes;
 using Utilities;
 #pragma warning disable 0162 // Unrecahble code warning due to preprocessor statement.
 [ExecuteAlways] public class SplineDrawer : ImmediateModeShapeDrawer {
-	public const int PointCount = 10;
+	public const int PointCount = 24;
 	public const float Opacity = 0.75f;
 	public float Thickness = 0.05f;
+	public Color Color = Color.white;
 	public Vector2 StartPoint = new Vector2( 0, 0);
 	public Vector2 StartFriendshipPoint = new Vector2( 0, 0);
 	public Vector2 StartControlPoint = new Vector2( -2, 1);
@@ -24,8 +25,9 @@ using Utilities;
 			// Draw.LineGeometry = LineGeometry.Billboard;
 			Draw.PolylineGeometry = PolylineGeometry.Billboard;
 			Draw.ThicknessSpace = ThicknessSpace.Meters;
-			Draw.Color = Color.white;
 			Draw.Opacity = Opacity;
+			
+			Draw.Color = Color;
 
 			// set static parameter to draw in the local space of this object
 			Draw.Matrix = transform.localToWorldMatrix;
