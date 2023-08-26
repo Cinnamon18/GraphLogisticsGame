@@ -7,7 +7,7 @@ namespace Gameplay {
 
 		[SerializeField] private SankeyChart sankeyChart;
 		void Start() {
-			sankeyChart.DoInitialDraw();
+
 		}
 	}
 }
