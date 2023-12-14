@@ -428,6 +428,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SankeyLink
       objectReference: {fileID: 0}
+    - target: {fileID: 2203912212206940355, guid: e78ff447b351dc144bbf6d46d277074e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5575511802387585771, guid: e78ff447b351dc144bbf6d46d277074e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.3880725

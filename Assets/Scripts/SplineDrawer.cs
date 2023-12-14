@@ -16,17 +16,14 @@ using Utilities;
 
 	// Code from miss freya holmer herself, see https://shapes.userecho.com/communities/1/topics/42-add-spline-primitive
 	public override void DrawShapes( Camera cam ){
-		// #if UNITY_EDITOR
-		// return;
-		// #endif
-
-		using( Draw.Command( cam ) ){
+		using( Draw.Command( cam, UnityEngine.Rendering.CameraEvent.BeforeForwardAlpha) ){
 			// set up static parameters. these are used for all following Draw.Line calls
 			// Draw.LineGeometry = LineGeometry.Billboard;
 			Draw.PolylineGeometry = PolylineGeometry.Billboard;
 			Draw.ThicknessSpace = ThicknessSpace.Meters;
 			Draw.Opacity = Opacity;
-			
+			Draw.BlendMode = ShapesBlendMode.Transparent;
+
 			Draw.Color = Color;
 
 			// set static parameter to draw in the local space of this object
